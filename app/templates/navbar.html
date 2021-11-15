@@ -1,31 +1,28 @@
-<div class="navbar navbar-inverse" role="navigation">
+ {% import 'macros.html' as macro %}
+<div class="navbar navbar-expand-lg navbar-light" role="navigation" style="background-color: rgb(1, 82, 28); color: ghostwhite;">
     <div class="container-fluid">
-        <div class="navbar-header">
+        <div class="navbar-header" style="font-size: x-large;">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"> Blog </a>
+            <strong><a class="nav-link" style="font-size: xx-larger;" href="/"> Blog </a></strong>
         </div>
         <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                {% if current_user.is_authenticated %}
-                <li><a href="{{url_for('main.upload_blog',uname=current_user.username)}}">Upload Blog</a></li>
-                {%endif%}
-            </ul>
+            <div class="nav navbar-nav" style="font-size: x-large; font-weight: 400;">
+                <a class="nav-link" href=" / ">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% if current_user.is_authenticated %}
+                <a class="nav-link" href="{{url_for( 'main.upload_blog',uname=current_user.username)}} ">Upload Blog</a>&nbsp;&nbsp;&nbsp; {%endif%}
+            </div>
         </div>
 
 
-        <ul class="nav navbar-nav navbar-right">
+        <div class="nav navbar-nav navbar-right " style="font-size: x-large;">
             {% if current_user.is_authenticated %}
-            <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
-            <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
-            {% else %}
-            <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
-            {%endif%}
-        </ul>
+            <a class="nav-link" href="{{url_for( 'main.profile',uname=current_user.username)}} ">Profile</a>&nbsp;&nbsp;&nbsp;
+            <a class="nav-link" href="{{url_for( 'auth.logout')}} ">Sign out</a>&nbsp;&nbsp;&nbsp; {% else %}
+            <a class="nav-link" href=" {{url_for( 'auth.login')}} ">Sign in</a>&nbsp;&nbsp;&nbsp; {%endif%}
+        </div>
     </div>
 </div>
